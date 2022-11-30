@@ -1,0 +1,19 @@
+name: EEL continuous build
+on:
+  push:
+    branches:
+      - '*'
+      - '!refs/tags/.*'
+    tags-ignore:
+      - '*'
+
+jobs:
+  build:
+    name: Build EEL
+    runs-on: self-hosted
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
