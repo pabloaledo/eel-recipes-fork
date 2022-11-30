@@ -1,0 +1,41 @@
+{% set version = "3.1.2" %}
+
+package:
+  name: preseq
+  version: {{ version }}
+
+build:
+  number: 3
+
+source:
+  url: https://github.com/smithlabcode/preseq/releases/download/v{{ version }}/preseq-{{ version }}.tar.gz
+  sha256: ed5176eb638e709bd22c0a43cedae5a2a3fcece40f6c130c509fbce6a59fa788
+
+requirements:
+  build:
+    - make
+    - {{ compiler('cxx') }}
+    - autoconf
+    - automake
+  host:
+    - zlib
+    - htslib
+  run:
+    - zlib
+    - htslib
+
+about:
+  home: https://github.com/smithlabcode/preseq
+  license: GPL-3.0-or-later
+  summary: |
+    predicting library complexity and genome coverage in high-throughput sequencing
+  doc_url: 'https://preseq.readthedocs.io/'
+
+test:
+  commands:
+    - preseq
+    - to-mr
+
+extra:
+  recipe-maintainers:
+    - andrewdavidsmith
