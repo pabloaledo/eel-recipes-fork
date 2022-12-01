@@ -22,7 +22,10 @@ build_recipe(){
 
 [ -e ~/anaconda3 ] || setup_conda
 
-build_recipe r-filelock
+build_recipe star
+
+# create key at https://anaconda.org/<user>/settings/access and put in the env_variable ANACONDA_API_TOKEN
+anaconda upload --user seqera linux-aarch64/*.tar.bz2
 
 #git diff --name-only HEAD^ HEAD | grep '^recipes/' | cut -d/ -f2 | sort | uniq | while read line
 #do
