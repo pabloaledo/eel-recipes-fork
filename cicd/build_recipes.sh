@@ -21,7 +21,7 @@ build_recipe(){
 
 
 [ -e ~/anaconda3 ] || setup_conda
-git diff --name-only HEAD^ HEAD | grep '/recipes/' | cut -d/ -f2 | sort | uniq | while read line
+git diff --name-only HEAD^ HEAD | grep '^recipes/' | cut -d/ -f2 | sort | uniq | while read line
 do
     build_recipe "$line"
 done
