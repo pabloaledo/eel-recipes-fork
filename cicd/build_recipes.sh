@@ -16,12 +16,15 @@ setup_conda(){
 
 build_recipe(){
     echo -e "\e[34m Building recipe $line \e[0m"
-    (cd "recipes/$1"; conda build .)
+    (cd "recipes/$1"; ~/anaconda3/bin/conda build .)
 }
 
 
 [ -e ~/anaconda3 ] || setup_conda
-git diff --name-only HEAD^ HEAD | grep '^recipes/' | cut -d/ -f2 | sort | uniq | while read line
-do
-    build_recipe "$line"
-done
+
+build_recipe r-filelock
+
+#git diff --name-only HEAD^ HEAD | grep '^recipes/' | cut -d/ -f2 | sort | uniq | while read line
+#do
+    #build_recipe "$line"
+#done
