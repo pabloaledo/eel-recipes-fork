@@ -25,7 +25,7 @@ build_recipe(){
 build_recipe star
 
 # create key at https://anaconda.org/<user>/settings/access and put in the env_variable ANACONDA_API_TOKEN
-~/anaconda3/bin/anaconda upload --user seqera linux-aarch64/*.tar.bz2
+~/anaconda3/bin/anaconda upload --user seqera ~/anaconda3/conda-bld/linux-aarch64/*.tar.bz2
 
 #git diff --name-only HEAD^ HEAD | grep '^recipes/' | cut -d/ -f2 | sort | uniq | while read line
 #do
