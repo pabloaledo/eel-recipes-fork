@@ -9,8 +9,8 @@ setup_conda(){
     echo 'export PATH=~/anaconda3/bin:$PATH' >> ~/.bashrc
     source ~/.bashrc
 
-    conda config --system --add channels defaults
-    conda config --system --add channels conda-forge
+    ~/anaconda3/bin/conda config --system --add channels defaults
+    ~/anaconda3/bin/conda config --system --add channels conda-forge
     )
 }
 
@@ -25,7 +25,7 @@ build_recipe(){
 build_recipe star
 
 # create key at https://anaconda.org/<user>/settings/access and put in the env_variable ANACONDA_API_TOKEN
-anaconda upload --user seqera linux-aarch64/*.tar.bz2
+~/anaconda3/bin/anaconda upload --user seqera linux-aarch64/*.tar.bz2
 
 #git diff --name-only HEAD^ HEAD | grep '^recipes/' | cut -d/ -f2 | sort | uniq | while read line
 #do
