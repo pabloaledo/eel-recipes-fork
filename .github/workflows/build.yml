@@ -10,10 +10,12 @@ on:
 jobs:
   build:
     name: Build EEL
-    runs-on: self-hosted
+    runs-on: ubuntu-20.04
     timeout-minutes: 90
 
     steps:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Build modified recipe
+        run: source cicd/build_recipes.sh
