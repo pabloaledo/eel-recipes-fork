@@ -1,4 +1,4 @@
-#!/bin/bash 
+#!/bin/bash
 export DISABLE_AUTOBREW=1
 mkdir -p ~/.R
 echo -e "CC=$CC
